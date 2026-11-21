@@ -1,0 +1,19 @@
+{
+  "id": "galle-test",
+  "w": 4000,
+  "h": 4000,
+  "land": [
+    { "id": "coast", "kind": "coast", "x": 6100, "y": 2300, "r": 2500, "seed": 41 },
+    { "id": "isle-west", "x": 1250, "y": 2050, "r": 230, "seed": 7 },
+    { "id": "isle-east", "x": 2850, "y": 2350, "r": 170, "seed": 13 },
+    { "id": "isle-north", "x": 1900, "y": 700, "r": 150, "seed": 29 }
+  ],
+  "decor": [
+    { "kind": "fort", "land": "coast", "x": 3690, "y": 2480, "flag": "pt" },
+    { "kind": "hut", "land": "coast", "x": 3700, "y": 2330, "rot": 0 },
+    { "kind": "hut", "land": "coast", "x": 3735, "y": 2270, "rot": 1 },
+    { "kind": "hut", "land": "coast", "x": 3720, "y": 2620, "rot": 1 },
+    { "kind": "hut", "land": "isle-west", "x": 1240, "y": 2215, "rot": 0 },
+    { "kind": "hut", "land": "isle-west", "x": 1290, "y": 2200, "rot": 1 }
+  ]
+}

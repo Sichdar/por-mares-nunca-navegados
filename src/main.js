@@ -1,8 +1,9 @@
 // Start-up and screens for M0 (the workshop): language, title, settings, credits.
-// The game loop arrives in M1.
+// M1: the practice fight on the isometric sea (src/ui/sea-screen.js).
 import { VERSION } from './version.js';
 import { loadTexts, createTranslator, guessLang, LANGS } from './text/i18n.js';
 import * as store from './save/store.js';
+import { openSea, loadFight } from './ui/sea-screen.js';
 
 const app = document.getElementById('app');
 const isTest = /\/test(\/|$)/.test(location.pathname);
@@ -93,7 +94,8 @@ function titleScreen() {
     el('blockquote', { class: 'verse' }, t('title.verse'), el('cite', {}, t('title.verseBy'))),
     el('div', { class: 'stack' },
       button(t('title.continue'), () => flash(t('title.noSave')), { class: 'muted', 'aria-disabled': 'true' }),
-      button(t('title.newCampaign'), () => flash(t('title.soon')), { class: 'primary' }),
+      button(t('title.fight'), startFight, { class: 'primary' }),
+      button(t('title.newCampaign'), () => flash(t('title.soon'))),
       button(t('title.settings'), () => show(settingsScreen)),
       button(t('title.credits'), () => show(creditsScreen)),
     ),
@@ -112,6 +114,15 @@ function titleScreen() {
   }
   parts.push(footer(t));
   return el('section', { class: 'card' }, parts);
+}
+
+async function startFight() {
+  try {
+    if (!state.fightData) state.fightData = await loadFight('zeehond');
+    openSea(app, { t: state.t, data: state.fightData, isTest, onLeave: () => show(titleScreen) });
+  } catch (err) {
+    flash('Error · Erro: ' + (err && err.message ? err.message : err));
+  }
 }
 
 function footer(t) {
@@ -164,6 +175,9 @@ function creditsScreen() {
 // --- offline helper ----------------------------------------------------------
 function registerWorker() {
   if (!('serviceWorker' in navigator)) return;
+  // While building on this PC the offline helper would keep serving old files; add ?offline to test it.
+  const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+  if (local && !/offline/.test(location.search)) return;
   navigator.serviceWorker.register('sw.js').then((reg) => {
     const offerUpdate = (worker) => {
       state.updateReady = () => worker.postMessage({ type: 'skip-waiting' });

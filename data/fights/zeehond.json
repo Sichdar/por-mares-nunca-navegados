@@ -1,0 +1,11 @@
+{
+  "id": "zeehond",
+  "map": "galle-test",
+  "wind": { "from": 45, "str": 1 },
+  "player": "p",
+  "enemy": "e",
+  "ships": [
+    { "id": "p", "name": "São Brás", "cls": "patacho", "x": 2000, "y": 3050, "h": 315, "morale": 70, "ctrl": "player" },
+    { "id": "e", "name": "Zeehond", "cls": "dutchWarship", "x": 2350, "y": 1250, "h": 160, "morale": 65, "aim": 0.85, "ctrl": "ai", "wp": { "x": 2050, "y": 2000 } }
+  ]
+}

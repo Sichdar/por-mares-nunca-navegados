@@ -14,9 +14,10 @@
     "newCampaign": "New campaign",
     "settings": "Settings",
     "credits": "Credits",
-    "soon": "The first fight arrives in the next build (M1).",
+    "soon": "The campaign arrives in a later build. Try the practice fight.",
     "testBuild": "Test version",
-    "version": "Version {v}"
+    "version": "Version {v}",
+    "fight": "Practice fight"
   },
   "install": {
     "ios": "To keep your saves on iPhone: tap Share, then “Add to Home Screen”.",
@@ -43,5 +44,208 @@
     "fonts": "Fonts: their authors (SIL Open Font License)",
     "licence": "Code: PolyForm Noncommercial 1.0.0 · Story and text: CC BY-NC-SA 4.0",
     "history": "Places and dates are real; the day-to-day characters are invented."
+  },
+  "sea": {
+    "aria": {
+      "sea": "The sea. Tap to sail, tap the enemy to attack, hold to board."
+    },
+    "brief": {
+      "eyebrow": "Off Galle, Ceylon · March 1640 · practice fight",
+      "title": "The Zeehond",
+      "text": "A Dutch warship, the Zeehond, is hunting Portuguese traders north of Galle. Take the patacho São Brás out and stop her: sink her, make her strike her colours, or board her.",
+      "how1": "Tap the sea to set a course. You can’t sail straight into the wind; the ship will zig-zag.",
+      "how2": "Tap the Dutch ship to attack. Your guns fire on their own when she’s inside a gold arc.",
+      "how3": "Hit her bow or stern (raking) for 1.5× damage.",
+      "how4": "Hold your finger on her, or tap Board, to grapple. She must be slowed below 60% speed first.",
+      "how5": "Pause any time with the button or a two-finger tap. Orders still work.",
+      "go": "Set sail",
+      "back": "Back to the title",
+      "note": "Test build of the first fight. Ships, sea and sound are all made by code."
+    },
+    "wind": {
+      "label": "Wind",
+      "text": "from {dir} · {str}",
+      "light": "light",
+      "fair": "fair",
+      "strong": "strong"
+    },
+    "dir": {
+      "N": "N",
+      "NE": "NE",
+      "E": "E",
+      "SE": "SE",
+      "S": "S",
+      "SW": "SW",
+      "W": "W",
+      "NW": "NW"
+    },
+    "pos": {
+      "into": "Into the wind",
+      "close": "Close-hauled",
+      "beam": "Beam reach",
+      "broad": "Broad reach",
+      "run": "Running"
+    },
+    "foe": {
+      "notSeen": "Not in sight",
+      "lost": "Out of sight"
+    },
+    "speed": {
+      "aria": "Time speed"
+    },
+    "pause": {
+      "aria": "Pause",
+      "title": "Paused",
+      "sub": "Orders still work while paused.",
+      "resume": "Resume",
+      "soundOn": "Sound: on",
+      "soundOff": "Sound: off",
+      "autoOn": "Pause on sighting: on",
+      "autoOff": "Pause on sighting: off",
+      "restart": "Restart fight",
+      "leave": "Leave",
+      "fps": "{n} frames a second"
+    },
+    "resume": {
+      "aria": "Resume"
+    },
+    "follow": "Follow my ship",
+    "card": {
+      "hull": "Hull",
+      "sails": "Sails",
+      "crew": "Crew",
+      "morale": "Morale",
+      "powder": "Powder {n}",
+      "knots": "{v} kn",
+      "left": "Left guns",
+      "bow": "Bow",
+      "right": "Right guns"
+    },
+    "ctl": {
+      "shot": "Shot",
+      "round": "Round",
+      "chain": "Chain",
+      "grape": "Grape",
+      "sails": "Sails",
+      "full": "Full",
+      "battle": "Battle",
+      "guns": "Guns",
+      "fire": "Fire at will",
+      "hold": "Hold fire",
+      "keep": "Keep away",
+      "board": "Board"
+    },
+    "toast": {
+      "windShift": "The wind is shifting: soon from the {dir}",
+      "aground": "Ran aground! The hull is damaged.",
+      "breakingOff": "The {name} is breaking off!",
+      "sailHo": "Sail ho! The Dutch ship {name}.",
+      "autoPaused": "Paused: enemy in sight",
+      "attack": "Attack the {name}",
+      "board": "Close in and board!",
+      "noEnemy": "No enemy in sight to board",
+      "offChart": "That is off the chart",
+      "onLand": "Can’t sail onto land",
+      "fastOff": "Enemy in sight: fast time is off",
+      "boarding": "Boarding!"
+    },
+    "hint": {
+      "start": "Tap the sea to set a course. A lookout reports sails to the north.",
+      "tack": "You can’t sail straight into the wind, so the ship zig-zags (tacks) toward the point.",
+      "seen": "Tap the Dutch ship to attack. Your guns fire on their own when she is inside a gold arc.",
+      "fired": "Fire! Each side reloads on its own: watch the gold bars on your ship card.",
+      "rake": "Raking: a broadside into her bow or stern does 1.5× damage.",
+      "bow": "Bow guns: 2 small guns that fire straight ahead, for chasing.",
+      "flee": "She is running for the edge of the chart. Chain shot slows her; if she gets away, she escapes.",
+      "board": "She is slow now. Hold your finger on her, or tap Board, to grapple and board.",
+      "tooFast": "Too fast to grapple: she must be below 60% speed. Chain shot slows her.",
+      "tooFastOrder": "She must be below 60% speed to grapple. Chain shot slows her.",
+      "keep": "Keep away: your ship holds about 300 off the enemy and turns its broadside to her by itself.",
+      "grape": "Grape shot only reaches 150: it kills crew before you board.",
+      "chain": "Chain shot tears sails and slows her down.",
+      "battleSail": "Battle sail: slower, but you turn faster and your sails take half the damage."
+    },
+    "fx": {
+      "raked": "Raked! ×1.5",
+      "aground": "Aground!",
+      "struck": "Colours struck!"
+    },
+    "label": {
+      "fleeing": "{name} (fleeing)",
+      "lastSeen": "last seen",
+      "reported": "sails reported"
+    },
+    "clash": {
+      "title": "Boarding!",
+      "round": "Round {n}",
+      "yours": "Your men",
+      "theirs": "Their men",
+      "vs": "vs",
+      "morale": "Morale {n}",
+      "watching": "Watching their deck…",
+      "reloading": "reloading",
+      "start": "Grappling hooks fly. Pick a tactic for each round; watch what their officer does.",
+      "log": "Round {n}: your {ours} against their {theirs}. {edge} You lose {lp} men, they lose {le}."
+    },
+    "tell": {
+      "volley": "They are loading muskets…",
+      "charge": "They are drawing cutlasses…",
+      "hold": "They are barricading the deck…"
+    },
+    "tac": {
+      "volley": "Musket volley",
+      "charge": "Cutlass charge",
+      "hold": "Hold the deck"
+    },
+    "beats": {
+      "volley": "beats a charge",
+      "charge": "beats holding",
+      "hold": "beats a volley"
+    },
+    "edge": {
+      "ours": "Your tactic wins (+30%).",
+      "theirs": "Their tactic wins (+30%).",
+      "even": "Neither has the edge."
+    },
+    "result": {
+      "won": "Victory",
+      "lost": "Defeat",
+      "escaped": "She got away",
+      "draw": "No result",
+      "won-sunkTitle": "The {name} is sunk",
+      "won-sunkText": "Her hull gave way under your broadsides. No prize, but the coast is safe for now.",
+      "won-struckTitle": "She strikes her colours",
+      "won-struckText": "Her crew lost heart and surrendered. In the full game she would become your prize.",
+      "won-capturedTitle": "Prize taken",
+      "won-capturedText": "Your boarders carried her deck. In the full game she could join your fleet or be sold.",
+      "lost-sunkTitle": "The {ours} goes down",
+      "lost-sunkText": "Her broadsides were too much. Try raking her from the bow or stern, and keep your distance with battle sails.",
+      "lost-capturedTitle": "Your ship is taken",
+      "lost-capturedText": "Her crew carried your deck. Thin her crew with grape shot before you board.",
+      "escapedTitle": "The {name} escapes",
+      "escapedText": "She ran for open sea. Chain shot on her sails would have kept her in reach.",
+      "drawTitle": "Both ships still afloat",
+      "drawText": "Neither ship gave way.",
+      "time": "Fight time (at 1×)",
+      "broadsides": "Broadsides fired",
+      "hits": "Hits",
+      "hitsOf": "{h} of {n} ({p}%)",
+      "rakes": "Raking broadsides",
+      "hullDealt": "Damage to her hull",
+      "menKilled": "Her men lost",
+      "hullLeft": "Your hull left",
+      "crewLeft": "Your crew left",
+      "of": "{a} of {b}",
+      "taps": "Your taps · likely wrong picks",
+      "tapsValue": "{n} · {w}",
+      "fps": "Slowest frame rate",
+      "askTitle": "Tell Claude, in a few words:",
+      "ask1": "Did the angled view feel as good as the flat chart fight, or better?",
+      "ask2": "Could you always tell which way each ship was facing?",
+      "ask3": "Did you ever tap the wrong ship, or the sea instead of a ship?",
+      "ask4": "Too easy, too hard, or about right?",
+      "again": "Fight again",
+      "leave": "Back to the title"
+    }
   }
 }

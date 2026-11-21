@@ -4,7 +4,7 @@
 
 A real-time naval strategy game for phones, with a pause button. It's 1638, and the Dutch East India Company is taking the Portuguese spice empire apart, one fort at a time. Trade pepper to pay for ships and powder, command a small squadron of named ships, and take coastal forts by cannon and boarding.
 
-**Status:** early building. Version 0.0.2 is the workshop: the title screen, two languages, offline play and the game's own fonts. The first fight arrives in the next version.
+**Status:** early building. Version 0.1.0 is the first fight (milestone M1): a practice battle off Galle in 1640, the São Brás against the Dutch Zeehond, on the angled (isometric) sea, with pause, 1×/2×/4× time and both languages. The campaign comes later.
 
 ## Play
 - Open the game's page in your phone's browser.
@@ -28,7 +28,7 @@ Design: Sichdar · Code written with Claude (Anthropic's AI) · Places and dates
 
 Um jogo de estratégia naval em tempo real para telemóvel, com botão de pausa. Estamos em 1638 e a Companhia Holandesa das Índias Orientais está a desmontar o império português das especiarias, uma fortaleza de cada vez. Comercie pimenta para pagar navios e pólvora, comande uma pequena esquadra de navios com nome e conquiste fortalezas da costa a tiro de canhão e por abordagem.
 
-**Estado:** em construção. A versão 0.0.2 é a oficina: o ecrã de título, as duas línguas, o jogo sem internet e os tipos de letra do jogo. O primeiro combate chega na próxima versão.
+**Estado:** em construção. A versão 0.1.0 é o primeiro combate (etapa M1): uma batalha de treino ao largo de Gale em 1640, o São Brás contra o holandês Zeehond, no mar em vista inclinada (isométrica), com pausa, tempo a 1×/2×/4× e as duas línguas. A campanha vem depois.
 
 ## Jogar
 - Abra a página do jogo no browser do telemóvel.

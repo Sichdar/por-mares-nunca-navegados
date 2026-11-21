@@ -1,6 +1,6 @@
 {
   "name": "por-mares-nunca-navegados",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": true,
   "description": "A naval strategy game of the spice war, 1638–1663. Plain web game, no packages needed.",
   "type": "module",

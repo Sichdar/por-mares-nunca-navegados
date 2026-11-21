@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, gameFiles, swFiles, swVersion } from './files.js';
 import { tests } from '../tests/sim-tests.js';
+import { balanceReport } from '../tests/balance.js';
 import { checkTexts } from '../tests/text-check.js';
 import { VERSION } from '../src/version.js';
 
@@ -15,6 +16,11 @@ console.log('Rule tests');
 for (const { name, fn } of tests) {
   try { await fn(); ok(name); } catch (e) { bad(`${name}: ${e.message}`); }
 }
+
+console.log('Balance runs (16 bot fights each; targets are for tuning, so they warn but never fail)');
+const bal = balanceReport(16);
+bal.lines.forEach((l) => console.log('  · ' + l));
+bal.checks.forEach((c) => console.log((c.ok ? '  ✓ ' : '  ! ') + c.text));
 
 console.log('Text check (en / pt)');
 const report = checkTexts();

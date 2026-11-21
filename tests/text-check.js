@@ -30,10 +30,20 @@ export function checkTexts() {
   }
   for (const k of Object.keys(pt)) if (!(k in en)) errors.push(`en.json is missing "${k}"`);
 
-  const used = new Set();
+  const used = new Set(), families = [];
   for (const f of codeFiles(path.join(ROOT, 'src'))) {
     const src = fs.readFileSync(f, 'utf8');
-    for (const m of src.matchAll(/\bt\(\s*'([a-zA-Z0-9_.]+)'/g)) used.add(m[1]);
+    for (const m of src.matchAll(/\bt\(\s*'([a-zA-Z0-9_.]+)'/g)) if (!m[1].endsWith('.')) used.add(m[1]); // 'a.b.' + x: a family, see below
+    // keys handed over by the rules (toast(W, 'key')) and keys written as plain strings
+    for (const m of src.matchAll(/\btoast\(\s*W\s*,\s*'([a-zA-Z0-9_.]+)'/g)) used.add(m[1]);
+    for (const m of src.matchAll(/'([a-z][a-zA-Z0-9_]*(?:\.[a-zA-Z0-9_-]+)+)'/g)) if (m[1] in en) used.add(m[1]);
+    // keys built at run time, declared in a comment: "text-keys: sea.hint.* sea.dir.*"
+    for (const m of src.matchAll(/text-keys:([^\n]*)/g)) families.push(...m[1].trim().split(/\s+/));
+  }
+  for (const fam of families) {
+    const hits = Object.keys(en).filter((k) => (fam.endsWith('.*') ? k.startsWith(fam.slice(0, -1)) : k === fam));
+    if (!hits.length) errors.push(`text-keys "${fam}" matches no key`);
+    hits.forEach((k) => used.add(k));
   }
   for (const k of used) if (!(k in en)) errors.push(`code uses "${k}", which is in no text table`);
   for (const k of Object.keys(en)) if (!used.has(k)) warnings.push(`unused text key "${k}"`);

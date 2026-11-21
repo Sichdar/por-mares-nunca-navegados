@@ -1,0 +1,152 @@
+/* The sea screen (Phase 7): full-bleed sea, a thin top bar to read, the command deck
+   in the thumb zone. Dark deck and brass for anything you can act on (from the fight test). */
+.sea-app {
+  --sea-ink: #ece4cf; --sea-dim: #a6b2ac; --sea-deck: #182125; --sea-deck2: #243137; --sea-line: #34454c;
+  --sea-brass: #d1a84f; --sea-pt: #4d86c4; --sea-nl: #e8812f;
+  --sea-good: #79c27c; --sea-warn: #e6b84a; --sea-bad: #e2604f;
+  position: fixed; inset: 0; display: flex; flex-direction: column;
+  background: #0d3044; color: var(--sea-ink); font-family: var(--ui-font); font-size: 15px;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+body.sea-mode { overflow: hidden; }
+body.sea-mode #app { padding: 0; display: block; min-height: 0; }
+.sea-app [hidden] { display: none !important; }
+.sea-app button {
+  font: inherit; color: inherit; min-height: 0; padding: 0; border: 0; background: none; border-radius: 0;
+  touch-action: manipulation; cursor: pointer;
+}
+.sea-app button:active { transform: none; filter: brightness(1.1); }
+.sea-app button:focus-visible { outline: 2px solid var(--sea-brass); outline-offset: 2px; }
+.sea-app h2 { font-family: var(--title-font); font-weight: normal; margin: 0; font-size: 30px; line-height: 1.05; text-align: left; }
+.sea-app p { margin: 0; line-height: 1.45; }
+
+.sea-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; }
+.sea-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+/* top bar */
+.sea-top {
+  position: absolute; left: 0; right: 0; top: 0; display: flex; align-items: center; gap: 10px;
+  padding: max(8px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 14px max(12px, env(safe-area-inset-left));
+  background: linear-gradient(var(--sea-deck) 0%, rgba(24, 33, 37, 0) 100%); pointer-events: none;
+}
+.sea-top > * { pointer-events: auto; }
+.sea-wind { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.sea-rose { width: 48px; height: 48px; flex: none; }
+.sea-lbl { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--sea-dim); }
+.sea-sub { font-size: 13px; color: var(--sea-dim); }
+.sea-wind > div { min-width: 0; }
+.sea-windtxt { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sea-foe { flex: 1 0 98px; min-width: 98px; background: rgba(24, 33, 37, 0.85); border: 1px solid var(--sea-line); border-radius: 8px; padding: 5px 8px; }
+.sea-foename { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; }
+.sea-flag { display: inline-block; width: 16px; height: 11px; border-radius: 1px; flex: none; }
+.sea-flag.nl { background: linear-gradient(var(--sea-nl) 0 33%, var(--sea-ink) 33% 66%, #3d5f8f 66%); }
+.sea-flag.pt { background: var(--sea-ink); box-shadow: inset 0 0 0 3.5px var(--sea-ink), inset 0 0 0 6px var(--sea-pt); }
+.sea-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 4px; }
+.sea-mini i { display: block; height: 5px; background: var(--sea-deck2); border-radius: 3px; overflow: hidden; }
+.sea-mini i b { display: block; height: 100%; background: var(--sea-nl); }
+.sea-time { display: flex; gap: 6px; flex: none; }
+.sea-app .sea-round {
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--sea-line); background: var(--sea-deck2);
+  font-weight: 800; font-size: 15px; display: grid; place-items: center;
+}
+.sea-app .sea-pausebtn { background: var(--sea-brass); color: var(--sea-deck); border-color: var(--sea-brass); font-size: 16px; }
+
+.sea-toasts { position: absolute; left: 0; right: 0; top: calc(78px + env(safe-area-inset-top)); display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none; padding-inline: 16px; }
+.sea-toast { background: var(--sea-deck); border: 1px solid var(--sea-line); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 500; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35); animation: sea-in 0.25s ease-out; max-width: 100%; text-align: center; }
+@keyframes sea-in { from { transform: translateY(-6px); opacity: 0; } }
+/* the pause card sits low, in the thumb zone, so the ships stay in view */
+.sea-pausecard {
+  position: absolute; left: 50%; bottom: 62px; transform: translateX(-50%);
+  background: rgba(24, 33, 37, 0.94); border: 1px solid var(--sea-brass); border-radius: 12px; padding: 8px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; width: min(360px, calc(100% - 24px)); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+.sea-pausehead { display: flex; align-items: baseline; gap: 10px; }
+.sea-pausetitle { font-family: var(--title-font); font-size: 20px; color: var(--sea-brass); }
+.sea-app .sea-pausecard .sea-pill { min-height: 40px; padding: 0 11px; font-size: 13px; }
+.sea-pills { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.sea-app .sea-pill { border: 1px solid var(--sea-line); background: var(--sea-deck2); border-radius: 999px; padding: 0 14px; min-height: 44px; font-size: 14px; font-weight: 700; }
+.sea-app .sea-follow { position: absolute; right: max(12px, env(safe-area-inset-right)); bottom: 52px; }
+.sea-hint {
+  position: absolute; left: max(16px, env(safe-area-inset-left)); right: max(16px, env(safe-area-inset-right)); bottom: 10px;
+  text-align: center; font-size: 14px; line-height: 1.3; background: rgba(24, 33, 37, 0.9); border-radius: 10px; padding: 7px 10px;
+  opacity: 0; transition: opacity 0.4s; pointer-events: none;
+}
+.sea-hint.on { opacity: 1; }
+
+/* command deck */
+.sea-deck {
+  flex: none; background: var(--sea-deck); border-top: 1px solid var(--sea-line); display: flex; flex-direction: column; gap: 8px;
+  padding: 8px max(16px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+.sea-deck.sea-hurt { animation: sea-hurt 0.45s ease-out; }
+@keyframes sea-hurt { from { box-shadow: inset 0 3px 0 var(--sea-bad); } to { box-shadow: inset 0 3px 0 transparent; } }
+.sea-cardhead { display: flex; align-items: baseline; gap: 8px; }
+.sea-cardhead b { font-family: var(--title-font); font-size: 19px; font-weight: 400; letter-spacing: 0.02em; }
+.sea-right { margin-left: auto; }
+.sea-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; margin-top: 4px; }
+.sea-bar { display: grid; grid-template-columns: 56px 1fr 34px; align-items: center; gap: 6px; font-size: 13px; color: var(--sea-dim); }
+.sea-bar i, .sea-rel i { display: block; height: 7px; background: var(--sea-deck2); border-radius: 4px; overflow: hidden; }
+.sea-bar i b, .sea-rel i b { display: block; height: 100%; width: 100%; background: var(--sea-good); transition: width 0.15s; }
+.sea-bar em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums; color: var(--sea-ink); }
+.sea-rel { display: grid; grid-template-columns: auto 1fr auto 1fr auto 1fr; gap: 6px; align-items: center; font-size: 12px; color: var(--sea-dim); margin-top: 6px; }
+.sea-rel i b { background: var(--sea-brass); }
+.sea-row { display: flex; gap: 10px; align-items: flex-end; }
+.sea-grp { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.sea-grow { flex: 1; }
+.sea-seg { display: flex; background: var(--sea-deck2); border: 1px solid var(--sea-line); border-radius: 10px; padding: 2px; gap: 2px; }
+.sea-app .sea-seg button { flex: 1; min-height: 44px; border-radius: 8px; font-size: 14px; font-weight: 700; padding: 0 6px; white-space: nowrap; color: var(--sea-dim); }
+.sea-app .sea-seg button[aria-pressed="true"] { background: var(--sea-brass); color: var(--sea-deck); }
+.sea-app .sea-act { min-height: 48px; border-radius: 10px; border: 1px solid var(--sea-nl); background: #5a3a22; font-weight: 800; font-size: 15px; padding: 0 14px; }
+.sea-app .sea-act[aria-pressed="true"] { background: var(--sea-nl); color: var(--sea-deck); }
+
+/* boarding clash */
+.sea-clash {
+  position: absolute; left: 0; right: 0; bottom: 0; background: var(--sea-deck); border-top: 2px solid var(--sea-nl);
+  padding: 10px max(16px, env(safe-area-inset-right)) 12px max(16px, env(safe-area-inset-left));
+  display: flex; flex-direction: column; gap: 8px; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+}
+.sea-clashhead { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.sea-clashhead b { font-family: var(--title-font); font-size: 21px; font-weight: 400; }
+.sea-sides { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; text-align: center; }
+.sea-big { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.sea-vs { font-family: var(--title-font); color: var(--sea-dim); }
+.sea-bal { height: 8px; border-radius: 4px; background: var(--sea-nl); overflow: hidden; }
+.sea-bal b { display: block; height: 100%; background: var(--sea-pt); transition: width 0.3s; }
+.sea-tbar { height: 4px; background: var(--sea-deck2); border-radius: 2px; overflow: hidden; }
+.sea-tbar b { display: block; height: 100%; background: var(--sea-brass); }
+.sea-tell { text-align: center; font-weight: 700; font-size: 16px; min-height: 22px; color: var(--sea-warn); }
+.sea-tactics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.sea-app .sea-tactics button {
+  min-height: 62px; border-radius: 10px; border: 1px solid var(--sea-line); background: var(--sea-deck2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 4px;
+}
+.sea-tactics button b { font-size: 14px; line-height: 1.15; }
+.sea-tactics button span { font-size: 12px; color: var(--sea-dim); }
+.sea-app .sea-tactics button[aria-pressed="true"] { background: var(--sea-brass); color: var(--sea-deck); border-color: var(--sea-brass); }
+.sea-tactics button[aria-pressed="true"] span { color: var(--sea-deck); }
+.sea-app .sea-tactics button:disabled { opacity: 0.4; }
+.sea-clog { min-height: 34px; line-height: 1.3; }
+
+/* briefing and results */
+.sea-overlay {
+  position: absolute; inset: 0; background: rgba(19, 42, 49, 0.8); display: grid; place-items: center; z-index: 5;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  overflow: auto;
+}
+.sea-sheet {
+  background: var(--sea-deck); border: 1px solid var(--sea-line); border-radius: 14px; padding: 20px 18px; max-width: 420px; width: 100%;
+  display: flex; flex-direction: column; gap: 12px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.sea-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sea-brass); }
+.sea-how { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; line-height: 1.35; }
+.sea-app .sea-primary { min-height: 50px; border-radius: 12px; background: var(--sea-brass); color: var(--sea-deck); font-weight: 800; font-size: 17px; }
+.sea-stats { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 15px; }
+.sea-stats span:nth-child(even) { font-variant-numeric: tabular-nums; font-weight: 700; text-align: right; }
+.sea-ask { background: var(--sea-deck2); border-radius: 10px; padding: 10px 12px; font-size: 14px; line-height: 1.4; }
+.sea-ask ol { margin: 6px 0 0; padding-left: 18px; }
+
+@media (max-width: 360px) {
+  .sea-windtxt { font-size: 13px; }
+  .sea-app .sea-seg button { font-size: 13px; padding: 0 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .sea-toast { animation: none; } .sea-hint { transition: none; } }

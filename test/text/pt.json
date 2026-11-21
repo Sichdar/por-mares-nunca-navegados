@@ -14,9 +14,10 @@
     "newCampaign": "Nova campanha",
     "settings": "Definições",
     "credits": "Créditos",
-    "soon": "O primeiro combate chega na próxima versão (M1).",
+    "soon": "A campanha chega numa versão futura. Experimenta o combate de treino.",
     "testBuild": "Versão de teste",
-    "version": "Versão {v}"
+    "version": "Versão {v}",
+    "fight": "Combate de treino"
   },
   "install": {
     "ios": "Para guardar os seus jogos no iPhone: toque em Partilhar e depois em “Adicionar ao ecrã principal”.",
@@ -43,5 +44,208 @@
     "fonts": "Tipos de letra: os seus autores (SIL Open Font License)",
     "licence": "Código: PolyForm Noncommercial 1.0.0 · História e textos: CC BY-NC-SA 4.0",
     "history": "Os lugares e as datas são reais; as personagens do dia a dia são inventadas."
+  },
+  "sea": {
+    "aria": {
+      "sea": "O mar. Toca para navegar, toca no inimigo para atacar, mantém o dedo para abordar."
+    },
+    "brief": {
+      "eyebrow": "Ao largo de Gale, Ceilão · março de 1640 · combate de treino",
+      "title": "O Zeehond",
+      "text": "Um navio de guerra holandês, o Zeehond, anda à caça de mercadores portugueses a norte de Gale. Leva o patacho São Brás e trava-o: afunda-o, obriga-o a arriar a bandeira, ou aborda-o.",
+      "how1": "Toca no mar para dar um rumo. Não se navega contra o vento: o navio vai bordejar.",
+      "how2": "Toca no navio holandês para atacar. Os canhões disparam sozinhos quando ele está dentro de um arco dourado.",
+      "how3": "Acerta-lhe na proa ou na popa (tiro de enfiada) para 1,5× de dano.",
+      "how4": "Mantém o dedo em cima dele, ou toca em Abordar, para lançar os arpéus. Antes tem de estar abaixo de 60% da velocidade.",
+      "how5": "Pausa quando quiseres, com o botão ou tocando com dois dedos. As ordens funcionam em pausa.",
+      "go": "Largar",
+      "back": "Voltar ao início",
+      "note": "Versão de teste do primeiro combate. Navios, mar e som são todos feitos por código."
+    },
+    "wind": {
+      "label": "Vento",
+      "text": "{dir} · {str}",
+      "light": "fraco",
+      "fair": "moderado",
+      "strong": "forte"
+    },
+    "dir": {
+      "N": "N",
+      "NE": "NE",
+      "E": "E",
+      "SE": "SE",
+      "S": "S",
+      "SW": "SO",
+      "W": "O",
+      "NW": "NO"
+    },
+    "pos": {
+      "into": "Contra o vento",
+      "close": "À bolina",
+      "beam": "Vento de través",
+      "broad": "Vento largo",
+      "run": "Vento em popa"
+    },
+    "foe": {
+      "notSeen": "Fora de vista",
+      "lost": "Perdido de vista"
+    },
+    "speed": {
+      "aria": "Velocidade do tempo"
+    },
+    "pause": {
+      "aria": "Pausa",
+      "title": "Em pausa",
+      "sub": "As ordens funcionam em pausa.",
+      "resume": "Continuar",
+      "soundOn": "Som: ligado",
+      "soundOff": "Som: desligado",
+      "autoOn": "Pausa ao avistar: sim",
+      "autoOff": "Pausa ao avistar: não",
+      "restart": "Recomeçar",
+      "leave": "Sair",
+      "fps": "{n} imagens por segundo"
+    },
+    "resume": {
+      "aria": "Continuar"
+    },
+    "follow": "Seguir o meu navio",
+    "card": {
+      "hull": "Casco",
+      "sails": "Velas",
+      "crew": "Homens",
+      "morale": "Moral",
+      "powder": "Pólvora {n}",
+      "knots": "{v} nós",
+      "left": "Bombordo",
+      "bow": "Proa",
+      "right": "Estibordo"
+    },
+    "ctl": {
+      "shot": "Tiro",
+      "round": "Bala",
+      "chain": "Corrente",
+      "grape": "Metralha",
+      "sails": "Velas",
+      "full": "Todas",
+      "battle": "Combate",
+      "guns": "Canhões",
+      "fire": "Fogo à vontade",
+      "hold": "Cessar fogo",
+      "keep": "À distância",
+      "board": "Abordar"
+    },
+    "toast": {
+      "windShift": "O vento está a rodar: em breve de {dir}",
+      "aground": "Encalhámos! O casco está danificado.",
+      "breakingOff": "O {name} está a fugir!",
+      "sailHo": "Vela à vista! O navio holandês {name}.",
+      "autoPaused": "Pausa: inimigo à vista",
+      "attack": "Atacar o {name}",
+      "board": "Aproximar e abordar!",
+      "noEnemy": "Nenhum inimigo à vista para abordar",
+      "offChart": "Isso fica fora da carta",
+      "onLand": "Não se navega em terra",
+      "fastOff": "Inimigo à vista: tempo rápido desligado",
+      "boarding": "Abordagem!"
+    },
+    "hint": {
+      "start": "Toca no mar para dar um rumo. O gajeiro avista velas a norte.",
+      "tack": "Não se navega contra o vento, por isso o navio vai bordejando até ao ponto.",
+      "seen": "Toca no navio holandês para atacar. Os canhões disparam sozinhos quando ele está dentro de um arco dourado.",
+      "fired": "Fogo! Cada bordo carrega à parte: vê as barras douradas no cartão do navio.",
+      "rake": "Tiro de enfiada: uma bordada na proa ou na popa dele faz 1,5× de dano.",
+      "bow": "Peças de proa: 2 canhões pequenos que disparam em frente, para perseguir.",
+      "flee": "Está a fugir para a beira da carta. O tiro de corrente abranda-o; se sair, escapa.",
+      "board": "Agora está lento. Mantém o dedo em cima dele, ou toca em Abordar, para lançar os arpéus.",
+      "tooFast": "Demasiado rápido para os arpéus: tem de estar abaixo de 60% da velocidade. O tiro de corrente abranda-o.",
+      "tooFastOrder": "Tem de estar abaixo de 60% da velocidade para os arpéus. O tiro de corrente abranda-o.",
+      "keep": "À distância: o teu navio fica a uns 300 do inimigo e vira-lhe a bordada sozinho.",
+      "grape": "A metralha só chega a 150: mata homens antes da abordagem.",
+      "chain": "O tiro de corrente rasga as velas e abranda-o.",
+      "battleSail": "Pano de combate: mais lento, mas viras mais depressa e as velas sofrem metade do dano."
+    },
+    "fx": {
+      "raked": "Enfiada! ×1,5",
+      "aground": "Encalhado!",
+      "struck": "Bandeira arriada!"
+    },
+    "label": {
+      "fleeing": "{name} (em fuga)",
+      "lastSeen": "visto aqui",
+      "reported": "velas avistadas"
+    },
+    "clash": {
+      "title": "Abordagem!",
+      "round": "Assalto {n}",
+      "yours": "Os teus homens",
+      "theirs": "Os deles",
+      "vs": "contra",
+      "morale": "Moral {n}",
+      "watching": "A observar o convés deles…",
+      "reloading": "a recarregar",
+      "start": "Voam os arpéus. Escolhe uma tática em cada assalto; observa o que faz o oficial deles.",
+      "log": "Assalto {n}: a tua {ours} contra a {theirs} deles. {edge} Perdes {lp} homens, eles perdem {le}."
+    },
+    "tell": {
+      "volley": "Estão a carregar os mosquetes…",
+      "charge": "Estão a desembainhar os alfanges…",
+      "hold": "Estão a barricar o convés…"
+    },
+    "tac": {
+      "volley": "Mosquetaria",
+      "charge": "Carga de alfange",
+      "hold": "Defesa do convés"
+    },
+    "beats": {
+      "volley": "vence a carga",
+      "charge": "vence a defesa",
+      "hold": "vence a mosquetaria"
+    },
+    "edge": {
+      "ours": "A tua tática ganha (+30%).",
+      "theirs": "A tática deles ganha (+30%).",
+      "even": "Nenhuma tem vantagem."
+    },
+    "result": {
+      "won": "Vitória",
+      "lost": "Derrota",
+      "escaped": "Fugiu-nos",
+      "draw": "Sem resultado",
+      "won-sunkTitle": "O {name} foi ao fundo",
+      "won-sunkText": "O casco cedeu às tuas bordadas. Não há presa, mas a costa fica segura por agora.",
+      "won-struckTitle": "Arriou a bandeira",
+      "won-struckText": "A tripulação perdeu o ânimo e rendeu-se. No jogo completo seria a tua presa.",
+      "won-capturedTitle": "Presa tomada",
+      "won-capturedText": "Os teus homens tomaram o convés. No jogo completo podia juntar-se à tua frota ou ser vendida.",
+      "lost-sunkTitle": "O {ours} vai ao fundo",
+      "lost-sunkText": "As bordadas dele foram demais. Tenta a enfiada pela proa ou pela popa, e mantém a distância com pano de combate.",
+      "lost-capturedTitle": "Tomaram o teu navio",
+      "lost-capturedText": "Os homens dele tomaram o teu convés. Usa metralha para lhe tirar gente antes de abordar.",
+      "escapedTitle": "O {name} escapou",
+      "escapedText": "Fugiu para o mar largo. Tiro de corrente nas velas tê-lo-ia mantido ao alcance.",
+      "drawTitle": "Os dois navios ainda a flutuar",
+      "drawText": "Nenhum dos navios cedeu.",
+      "time": "Tempo de combate (a 1×)",
+      "broadsides": "Bordadas disparadas",
+      "hits": "Acertos",
+      "hitsOf": "{h} de {n} ({p}%)",
+      "rakes": "Bordadas de enfiada",
+      "hullDealt": "Dano no casco dele",
+      "menKilled": "Homens que ele perdeu",
+      "hullLeft": "O teu casco",
+      "crewLeft": "Os teus homens",
+      "of": "{a} de {b}",
+      "taps": "Os teus toques · escolhas talvez erradas",
+      "tapsValue": "{n} · {w}",
+      "fps": "Imagens por segundo (mínimo)",
+      "askTitle": "Diz ao Claude, em poucas palavras:",
+      "ask1": "A vista inclinada soube tão bem como o combate na carta plana, ou melhor?",
+      "ask2": "Percebeste sempre para onde estava virado cada navio?",
+      "ask3": "Alguma vez tocaste no navio errado, ou no mar em vez de num navio?",
+      "ask4": "Demasiado fácil, demasiado difícil, ou certo?",
+      "again": "Combater outra vez",
+      "leave": "Voltar ao início"
+    }
   }
 }
