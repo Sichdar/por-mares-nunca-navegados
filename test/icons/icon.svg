@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#1b2440"/>
+  <circle cx="256" cy="230" r="200" fill="#24335c"/>
+  <!-- sea -->
+  <path d="M0 392 Q64 372 128 392 T256 392 T384 392 T512 392 V512 H0 Z" fill="#2f5fa7"/>
+  <path d="M0 420 Q64 402 128 420 T256 420 T384 420 T512 420 V512 H0 Z" fill="#24335c"/>
+  <!-- hull -->
+  <path d="M110 330 H402 L370 384 H150 Z" fill="#6b4a2b"/>
+  <path d="M110 330 H402 L396 342 H118 Z" fill="#8a6237"/>
+  <!-- mast -->
+  <rect x="250" y="92" width="12" height="240" fill="#4a3320"/>
+  <!-- main sail, filled by the wind -->
+  <path d="M150 128 Q256 108 362 128 Q378 210 362 296 Q256 278 150 296 Q134 210 150 128 Z" fill="#f2e6c9"/>
+  <!-- cross of the Order of Christ, simplified -->
+  <path d="M232 150 H280 L270 190 L310 180 V228 L270 218 L280 262 H232 L242 218 L202 228 V180 L242 190 Z" fill="#a8322b"/>
+  <!-- pennant -->
+  <path d="M262 92 L312 102 L262 112 Z" fill="#a8322b"/>
+</svg>

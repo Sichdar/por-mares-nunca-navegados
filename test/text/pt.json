@@ -1,0 +1,47 @@
+{
+  "lang": {
+    "choose": "Escolha a sua língua",
+    "en": "English",
+    "pt": "Português"
+  },
+  "title": {
+    "subtitle": "A guerra das especiarias",
+    "tagline": "Índia e Ceilão, 1638–1663",
+    "verse": "“Por mares nunca de antes navegados”",
+    "verseBy": "Camões, Os Lusíadas, Canto I",
+    "continue": "Continuar",
+    "noSave": "Ainda não há campanha guardada",
+    "newCampaign": "Nova campanha",
+    "settings": "Definições",
+    "credits": "Créditos",
+    "soon": "O primeiro combate chega na próxima versão (M1).",
+    "testBuild": "Versão de teste",
+    "version": "Versão {v}"
+  },
+  "install": {
+    "ios": "Para guardar os seus jogos no iPhone: toque em Partilhar e depois em “Adicionar ao ecrã principal”.",
+    "close": "OK"
+  },
+  "update": {
+    "ready": "Há uma nova versão.",
+    "restart": "Reiniciar"
+  },
+  "settings": {
+    "title": "Definições",
+    "language": "Língua",
+    "privacy": "Privacidade",
+    "privacyNote": "Este jogo guarda os seus jogos só no seu telemóvel. Não envia nada para lado nenhum. A página está alojada no GitHub, que vê a sua visita como qualquer site.",
+    "offline": "Funciona sem internet depois de aberto.",
+    "offlineReady": "Pronto para jogar sem internet.",
+    "about": "Sobre",
+    "back": "Voltar"
+  },
+  "credits": {
+    "title": "Créditos",
+    "design": "Design: Sichdar",
+    "code": "Código escrito com o Claude (a IA da Anthropic)",
+    "fonts": "Tipos de letra: os seus autores (SIL Open Font License)",
+    "licence": "Código: PolyForm Noncommercial 1.0.0 · História e textos: CC BY-NC-SA 4.0",
+    "history": "Os lugares e as datas são reais; as personagens do dia a dia são inventadas."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "lang": {
+    "choose": "Choose your language",
+    "en": "English",
+    "pt": "Português"
+  },
+  "title": {
+    "subtitle": "By seas never sailed before",
+    "tagline": "The spice war, 1638–1663",
+    "verse": "“Por mares nunca de antes navegados”",
+    "verseBy": "Camões, The Lusiads, Canto I",
+    "continue": "Continue",
+    "noSave": "No saved campaign yet",
+    "newCampaign": "New campaign",
+    "settings": "Settings",
+    "credits": "Credits",
+    "soon": "The first fight arrives in the next build (M1).",
+    "testBuild": "Test version",
+    "version": "Version {v}"
+  },
+  "install": {
+    "ios": "To keep your saves on iPhone: tap Share, then “Add to Home Screen”.",
+    "close": "OK"
+  },
+  "update": {
+    "ready": "New version ready.",
+    "restart": "Restart"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "privacy": "Privacy",
+    "privacyNote": "This game keeps your saves only on your phone. It sends nothing anywhere. The page is hosted by GitHub, which sees your visit like any website.",
+    "offline": "Works offline once opened.",
+    "offlineReady": "Ready to play offline.",
+    "about": "About",
+    "back": "Back"
+  },
+  "credits": {
+    "title": "Credits",
+    "design": "Design: Sichdar",
+    "code": "Code written with Claude (Anthropic's AI)",
+    "fonts": "Fonts: their authors (SIL Open Font License)",
+    "licence": "Code: PolyForm Noncommercial 1.0.0 · Story and text: CC BY-NC-SA 4.0",
+    "history": "Places and dates are real; the day-to-day characters are invented."
+  }
+}
