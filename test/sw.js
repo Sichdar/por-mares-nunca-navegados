@@ -1,11 +1,17 @@
 // Offline helper (Phase 8). Stores every game file on the phone the first time,
 // then serves them from there, so the game starts with no internet.
 // FILES must list every game file: `node tools/check.js` checks it.
-const VERSION = '0.0.1';
+const VERSION = '0.0.2';
 const FILES = [
   './',
   'index.html',
   'manifest.webmanifest',
+  'fonts/AlegreyaSans-Bold.ttf',
+  'fonts/AlegreyaSans-Italic.ttf',
+  'fonts/AlegreyaSans-OFL.txt',
+  'fonts/AlegreyaSans-Regular.ttf',
+  'fonts/IMFellEnglishSC-OFL.txt',
+  'fonts/IMFellEnglishSC-Regular.ttf',
   'icons/apple-touch-icon.png',
   'icons/icon-192.png',
   'icons/icon-512.png',

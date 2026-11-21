@@ -1,4 +1,10 @@
 /* Look (Phase 6): a sea chart on parchment, framed with blue-and-white tiles. */
+/* The game's own fonts (SIL Open Font License, licence files in fonts/). */
+@font-face { font-family: 'IM Fell English SC'; src: url('../fonts/IMFellEnglishSC-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Alegreya Sans'; src: url('../fonts/AlegreyaSans-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Alegreya Sans'; src: url('../fonts/AlegreyaSans-Italic.ttf') format('truetype'); font-weight: normal; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Alegreya Sans'; src: url('../fonts/AlegreyaSans-Bold.ttf') format('truetype'); font-weight: bold; font-style: normal; font-display: swap; }
+
 :root {
   --night: #1b2440;
   --indigo: #24335c;
