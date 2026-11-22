@@ -1,0 +1,9 @@
+{
+  "_note": "Days of sailing between neighbouring ports with a fair wind, for quick passages (the test build until the sea maps arrive, and later the long voyages between missions on the campaign map, Phase 8). Guesses (S08, 22/11/2026); the sea maps will set the real times (tests T5, T6).",
+  "routes": [
+    ["goa", "cannanore", 3],
+    ["cannanore", "calicut", 1],
+    ["calicut", "cochin", 2],
+    ["cochin", "quilon", 2]
+  ]
+}

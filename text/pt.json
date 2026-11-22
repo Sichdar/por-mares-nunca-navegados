@@ -17,7 +17,11 @@
     "soon": "A campanha chega numa versão futura. Experimenta o combate de treino.",
     "testBuild": "Versão de teste",
     "version": "Versão {v}",
-    "fight": "Combate de treino"
+    "fight": "Combate de treino",
+    "voyage": "Viagem de treino: Pimenta para Cochin",
+    "continueFrom": "Continuar · {date}, {port}",
+    "loadBad": "Não foi possível ler a viagem gravada.",
+    "replaceSave": "Toque outra vez para começar uma viagem nova. Substitui a que está gravada."
   },
   "install": {
     "ios": "Para guardar os seus jogos no iPhone: toque em Partilhar e depois em “Adicionar ao ecrã principal”.",
@@ -35,7 +39,21 @@
     "offline": "Funciona sem internet depois de aberto.",
     "offlineReady": "Pronto para jogar sem internet.",
     "about": "Sobre",
-    "back": "Voltar"
+    "back": "Voltar",
+    "saves": "Gravações",
+    "export": "Exportar gravação",
+    "import": "Importar gravação",
+    "exportNone": "Ainda não há gravação para exportar.",
+    "exported": "Ficheiro de gravação criado. Guarde-o num sítio seguro.",
+    "imported": "Gravação carregada: {date}, {port}.",
+    "saveNote": "As gravações ficam só neste telemóvel. Exporte uma de vez em quando, como cópia de segurança ou para passar para outro telemóvel.",
+    "bad": {
+      "notSave": "Esse ficheiro não é uma gravação deste jogo.",
+      "tooNew": "Essa gravação é de uma versão mais recente do jogo.",
+      "broken": "Essa gravação está danificada.",
+      "noUpgrade": "Essa gravação é demasiado antiga para carregar.",
+      "writeFailed": "Não foi possível gravar."
+    }
   },
   "credits": {
     "title": "Créditos",
@@ -247,5 +265,150 @@
       "again": "Combater outra vez",
       "leave": "Voltar ao início"
     }
+  },
+  "port": {
+    "date": "Data",
+    "gold": "Ouro",
+    "monsoonIn": "Monção em",
+    "days": "{n} dias",
+    "goal": "Objetivo: {gold} de lucro",
+    "profitNow": "Lucro {gold}",
+    "tab": {
+      "market": "Mercado",
+      "shipyard": "Estaleiro",
+      "tavern": "Taberna"
+    },
+    "name": {
+      "goa": "Goa",
+      "cannanore": "Cannanore",
+      "calicut": "Calicut",
+      "cochin": "Cochin",
+      "quilon": "Quilon"
+    },
+    "owner": {
+      "pt": "Português",
+      "zamorin": "Do Samorim",
+      "nl": "Holandês"
+    },
+    "size": {
+      "large": "porto grande",
+      "small": "porto pequeno"
+    },
+    "good": {
+      "pepper": "Pimenta",
+      "cinnamon": "Canela",
+      "cloth": "Pano de algodão",
+      "rice": "Arroz",
+      "arrack": "Araca",
+      "teak": "Teca",
+      "powder": "Pólvora e balas",
+      "food": "Mantimentos"
+    },
+    "cls": {
+      "patacho": "patacho"
+    },
+    "cheap": "Mais barato do que o costume",
+    "dear": "Mais caro do que o costume",
+    "colGood": "Mercadoria",
+    "colPrice": "Preço",
+    "colHave": "A bordo",
+    "hold": "Porão {used} / {size}",
+    "stores": "Paióis do navio (fora do porão)",
+    "quote": "Compra a {buy} · venda a {sell}",
+    "foodDays": "comida para {n} dias",
+    "sellAll": "Vender tudo",
+    "max": "Máx.",
+    "hull": "Casco",
+    "sails": "Velas",
+    "crew": "Tripulação",
+    "morale": "Moral",
+    "repairAll": "Reparar tudo · {gold} de ouro",
+    "noRepairs": "Nada a reparar",
+    "shipsLater": "Comprar navios e melhorá-los abre quando a frota crescer (missão 3).",
+    "hire": "Contratar {n} marinheiros · {gold} de ouro",
+    "fullCrew": "Tripulação completa",
+    "payWages": "Pagar soldos · {gold} de ouro",
+    "wagesPaid": "Soldos pagos",
+    "wagesNote": "Soldos: {gold} de ouro por mês para toda a tripulação.",
+    "moraleLow": "A tripulação anda inquieta.",
+    "setSail": "Largar",
+    "wait": "Esperar um dia",
+    "menu": "Menu",
+    "passageTitle": "Para onde?",
+    "passage": "{port} · {days} dias",
+    "closedOnArrival": "fechado pela monção à chegada",
+    "passageNote": "Viagem rápida: os dias passam no mar e depois entra no porto. O mapa do mar chega na próxima atualização.",
+    "stay": "Ficar no porto",
+    "saveNow": "Gravar agora",
+    "restart": "Recomeçar a missão",
+    "leave": "Voltar ao início",
+    "back": "Voltar",
+    "closedUntil": "O porto está fechado pela monção até {date}.",
+    "wonTitle": "Pimenta para Cochin",
+    "lostTitle": "Chegaram as chuvas",
+    "wonText": "As naus de Lisboa partem carregadas. Lucro de {gold} de ouro em {days} dias.",
+    "lostText": "A monção fechou os portos com o seu lucro em {gold} de ouro. Voltam a abrir a {date}.",
+    "starsLabel": "{n} de 3 estrelas",
+    "starsWhy": "Estrelas: objetivo cumprido · nenhum navio perdido · feito na primeira metade da estação.",
+    "again": "Jogar de novo",
+    "retry": "Tentar de novo",
+    "why": {
+      "holdFull": "O porão está cheio.",
+      "storesFull": "Não há mais espaço nos paióis.",
+      "noGold": "Não tem ouro que chegue.",
+      "noStock": "O mercado não tem mais.",
+      "noCargo": "Não tem nada para vender.",
+      "noGood": "Não se negoceia aqui.",
+      "over": "A missão terminou.",
+      "atSea": "Está no mar.",
+      "closed": "O porto está fechado pela monção.",
+      "noShipyard": "Não há estaleiro aqui.",
+      "noTavern": "Não há taberna aqui.",
+      "nothingToDo": "Nada a fazer.",
+      "noRoute": "Não há rota daqui.",
+      "notHere": "Não fica nesta costa."
+    },
+    "note": {
+      "bought": "Comprou {n} de {good} por {gold} de ouro.",
+      "sold": "Vendeu {n} de {good} por {gold} de ouro.",
+      "waited": "Passa um dia: {date}.",
+      "arrived": "Fundeado em {port} ao fim de {days} dias.",
+      "hungry": "Acabou a comida: a moral desce.",
+      "unpaid": "Os soldos estão um mês atrasados: a moral desce.",
+      "storm": "O mar da monção castigou o casco.",
+      "repaired": "Reparado por {gold} de ouro.",
+      "hired": "Marinheiros contratados por {gold} de ouro.",
+      "paid": "Soldos pagos: {gold} de ouro.",
+      "saved": "Gravado."
+    },
+    "hint": {
+      "start": "As naus de Lisboa estão a carregar em Cochin e aqui a pimenta está cara. Quilon, dois dias a sul, tem muita.",
+      "cheapHere": "▼ verde quer dizer mais barato do que o costume: compre aqui. Venda onde a seta estiver vermelha ▲.",
+      "sellDear": "Agora volte a Cochin e venda a pimenta enquanto está cara.",
+      "monsoon": "A monção fecha os portos a 1 de junho. Não se deixe apanhar no mar com carga."
+    },
+    "rumour": {
+      "goa": {
+        "a": "A bolsa do Vice-Rei anda magra este ano; Dona Inês conta cada cruzado.",
+        "b": "Viram-se outra vez velas holandesas à barra, de madrugada."
+      },
+      "cannanore": {
+        "a": "Dizem que o gengibre da serra está barato esta semana.",
+        "b": "Um barco de piratas anda escondido nos esteiros a norte."
+      },
+      "calicut": {
+        "a": "O Samorim compra a quem paga melhor, e os holandeses pagam bem.",
+        "b": "Os panos dos teares daqui chegam até Lisboa."
+      },
+      "cochin": {
+        "a": "As naus de Lisboa querem cada saco de pimenta antes das chuvas.",
+        "b": "Ana Mendonça diz que os armazéns de Quilon estão a abarrotar de pimenta."
+      },
+      "quilon": {
+        "a": "Os barcos do rio trazem pimenta da serra todos os dias.",
+        "b": "Aqui falta pano; os mercadores de Cochin têm-no barato."
+      }
+    },
+    "cargoNote": "O lucro conta só o ouro: venda as {n} unidades a bordo para o ver."
   }
 }

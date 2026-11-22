@@ -1,0 +1,31 @@
+{
+  "_note": "Mission 2 'Pepper for Cochin' (GDD Phase 5): make 800 gold profit before the monsoon closes the ports. In March the Lisbon ships are loading at Cochin, so Cochin is short of pepper (usual stock 70% of target, dear) while Quilon has plenty (cheap): the route the hints point to. The sea map comes in the next M2 part; until then the test build sails between ports by quick passage.",
+  "id": "m2-pepper",
+  "map": "south-malabar",
+  "start": {
+    "date": "1638-03-01",
+    "port": "cochin",
+    "gold": 1000,
+    "difficulty": "captain"
+  },
+  "fleet": [
+    {
+      "id": "p1",
+      "name": "São Brás",
+      "cls": "patacho",
+      "morale": 70,
+      "food": 1,
+      "powder": 1
+    }
+  ],
+  "markets": {
+    "cochin": {
+      "pepper": 0.7
+    }
+  },
+  "goal": {
+    "type": "profit",
+    "gold": 800,
+    "by": "monsoon"
+  }
+}

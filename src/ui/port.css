@@ -1,0 +1,108 @@
+/* The port screen (Phase 7): one parchment sheet over a dark harbour, tabs one tap away,
+   numbers first and words second, everything you tap at least 44 points tall. */
+body.port-mode { overflow: hidden; }
+body.port-mode #app { padding: 0; display: block; min-height: 0; }
+
+.port-app {
+  --good: #2f7d3a; --bad: #a8322b; --warn: #a06a10;
+  position: fixed; inset: 0; display: flex; flex-direction: column;
+  background: radial-gradient(ellipse at 50% 0%, #1d5470 0%, #0d3044 55%, #0a2333 100%);
+  padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left));
+  user-select: none; -webkit-user-select: none;
+}
+.port-card {
+  flex: 1; min-height: 0; min-width: 0; display: flex; flex-direction: column; width: 100%; max-width: 460px; margin: 0 auto;
+  background: var(--parchment); border: 5px solid var(--azulejo); outline: 2px solid #fff; outline-offset: -9px;
+  border-radius: 6px; padding: 12px 12px 6px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+.port-app button { min-height: 44px; font-size: 1rem; padding: 6px 10px; }
+.port-app button:disabled { opacity: 0.45; cursor: default; }
+
+.port-head { flex: none; }
+.port-title { display: flex; align-items: center; gap: 8px; }
+.port-title h2 { margin: 0; text-align: left; font-size: 1.7rem; line-height: 1.05; }
+.port-flag { width: 22px; height: 15px; flex: none; border-radius: 1px; border: 1px solid rgba(0, 0, 0, 0.25); }
+.port-flag.pt { background: #fff; box-shadow: inset 0 0 0 4px #fff, inset 0 0 0 7px var(--azulejo); }
+.port-flag.zamorin { background: linear-gradient(90deg, #b8862b 50%, #a8322b 50%); }
+.port-flag.nl { background: linear-gradient(#e8812f 0 33%, #fff 33% 66%, #3d5f8f 66%); }
+.port-sub { margin: 2px 0 6px; color: var(--ink-soft); font-size: 0.9rem; }
+.port-facts { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
+.port-facts > div { background: var(--parchment-dark); border-radius: 5px; padding: 4px 7px; min-width: 0; }
+.port-facts b { display: block; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.port-facts b.warn { color: var(--bad); }
+.port-gold::before { content: '● '; color: var(--gold); }
+.port-lbl { display: block; font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); }
+
+.port-goal { flex: none; margin: 8px 0 6px; }
+.port-goalrow { display: flex; min-width: 0; justify-content: space-between; gap: 8px; font-size: 0.9rem; }
+.port-goalrow b.bad { color: var(--bad); }
+.port-meter { display: block; height: 8px; border-radius: 4px; background: var(--parchment-dark); overflow: hidden; margin-top: 3px; }
+.port-meter b { display: block; height: 100%; background: var(--good); border-radius: 4px; }
+.port-meter.small { height: 6px; }
+.port-meter.low b { background: var(--warn); }
+
+.port-tabs { flex: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; border-bottom: 2px solid var(--ink); }
+.port-tabs button { border: 0; border-radius: 6px 6px 0 0; background: var(--parchment-dark); font-weight: 700; }
+.port-tabs button.on { background: var(--ink); color: var(--parchment); }
+
+.port-body { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: 6px 0 4px; }
+.port-pane h3 { margin: 12px 0 4px; }
+.port-hold { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.95rem; margin: 2px 0 6px; }
+.port-hold .port-meter { flex: 1; margin: 0; }
+.port-cols, .port-row { display: grid; grid-template-columns: minmax(0, 1fr) 74px 74px; align-items: center; gap: 6px; }
+.port-cols { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); padding: 0 8px; }
+.port-cols span:not(:first-child), .port-row span:not(:first-child) { text-align: right; }
+.port-app .port-row {
+  width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--parchment-dark); border-radius: 0;
+  background: none; padding: 6px 8px; min-height: 48px;
+}
+.port-app .port-row.open { background: var(--parchment-dark); border-radius: 6px 6px 0 0; }
+.port-good { font-weight: 700; }
+.port-price { font-variant-numeric: tabular-nums; font-weight: 700; }
+.port-have { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.mk { display: inline-block; width: 1.1em; text-align: center; margin-right: 2px; color: var(--ink-soft); }
+.mk.good { color: var(--good); }
+.mk.bad { color: var(--bad); }
+.port-open { background: var(--parchment-dark); border-radius: 6px; margin: 2px 0 6px; padding-bottom: 8px; }
+.port-quote { margin: 0; padding: 0 8px 6px; font-size: 0.88rem; color: var(--ink-soft); }
+.port-btns { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(4, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 5px; padding: 0 6px; }
+.port-app .port-btn { padding: 4px 2px; font-weight: 700; font-variant-numeric: tabular-nums; border-width: 2px; }
+.port-app .port-btn.buy { background: var(--indigo); color: var(--parchment); border-color: var(--indigo); }
+.port-app .port-btn.sell { background: var(--parchment); }
+
+.port-ship { margin: 8px 0; }
+.port-shipname { margin: 0 0 4px; font-weight: 700; }
+.port-shipname span { font-weight: normal; color: var(--ink-soft); }
+.port-bar { display: grid; grid-template-columns: 70px minmax(0, 1fr) 74px; align-items: center; gap: 8px; font-size: 0.9rem; margin: 3px 0; }
+.port-bar .port-meter { margin: 0; }
+.port-bar em { font-style: normal; text-align: right; font-variant-numeric: tabular-nums; }
+.port-app .port-wide { display: block; width: 100%; margin: 8px 0 0; }
+.port-small { font-size: 0.85rem; color: var(--ink-soft); margin: 8px 0 0; }
+.port-cargo { margin: 2px 0 0; font-size: 0.78rem; }
+.port-rumour { margin: 4px 0 8px; padding: 8px 10px; border-left: 3px solid var(--gold); background: var(--parchment-dark); font-style: italic; border-radius: 0 6px 6px 0; }
+.port-closed { font-size: 1.05rem; text-align: center; padding: 30px 10px; }
+
+.port-hint { flex: none; min-height: 2.6em; margin: 4px 0 0; font-size: 0.9rem; text-align: center; opacity: 0; transition: opacity 0.3s; }
+.port-hint.on { opacity: 1; }
+
+.port-foot {
+  flex: none; display: grid; grid-template-columns: 1fr auto auto; gap: 8px; width: 100%; max-width: 460px; margin: 0 auto;
+  padding: 8px 0 max(10px, env(safe-area-inset-bottom));
+}
+.port-app .port-sail { min-height: 54px; font-size: 1.15rem; font-family: var(--title-font); }
+.port-app .port-side { min-width: 54px; background: var(--parchment-dark); }
+
+.port-sheetwrap { position: fixed; inset: 0; background: rgba(5, 15, 25, 0.55); display: flex; align-items: flex-end; justify-content: center; z-index: 5; }
+.port-sheet {
+  width: 100%; max-width: 460px; background: var(--parchment); border-top: 5px solid var(--azulejo);
+  border-radius: 12px 12px 0 0; padding: 14px 16px max(16px, env(safe-area-inset-bottom)); box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+  animation: port-up 0.22s ease-out; max-height: 85vh; overflow-y: auto;
+}
+.port-sheet h3 { margin-top: 0; }
+.port-stars { text-align: center; font-size: 2rem; color: var(--gold); margin: 0; letter-spacing: 0.1em; }
+@keyframes port-up { from { transform: translateY(30px); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .port-sheet { animation: none; }
+  .port-hint { transition: none; }
+}

@@ -1,13 +1,18 @@
 // Start-up and screens for M0 (the workshop): language, title, settings, credits.
 // M1: the practice fight on the isometric sea (src/ui/sea-screen.js).
+// text-keys: settings.bad.*
+// M2 (first part): the practice voyage in port (src/ui/port-screen.js), autosave, Continue, export and import.
 import { VERSION } from './version.js';
-import { loadTexts, createTranslator, guessLang, LANGS } from './text/i18n.js';
+import { loadTexts, createTranslator, guessLang, LANGS, formatDay } from './text/i18n.js';
 import * as store from './save/store.js';
 import { openSea, loadFight } from './ui/sea-screen.js';
+import { openPort, loadVoyageData } from './ui/port-screen.js';
+import * as saves from './save/saves.js';
+import { createVoyage } from './sim/voyage.js';
 
 const app = document.getElementById('app');
 const isTest = /\/test(\/|$)/.test(location.pathname);
-const state = { lang: 'en', tables: null, t: (k) => k, updateReady: null, offlineReady: false, screen: null };
+const state = { lang: 'en', tables: null, t: (k) => k, updateReady: null, offlineReady: false, screen: null, autosave: null };
 
 store.init(isTest ? 'pmnn-test' : 'pmnn');
 
@@ -93,8 +98,11 @@ function titleScreen() {
     el('p', { class: 'tagline' }, t('title.tagline')),
     el('blockquote', { class: 'verse' }, t('title.verse'), el('cite', {}, t('title.verseBy'))),
     el('div', { class: 'stack' },
-      button(t('title.continue'), () => flash(t('title.noSave')), { class: 'muted', 'aria-disabled': 'true' }),
-      button(t('title.fight'), startFight, { class: 'primary' }),
+      state.autosave
+        ? button(t('title.continueFrom', whereLabel(state.autosave)), continueVoyage, { class: 'primary' })
+        : button(t('title.continue'), () => flash(t('title.noSave')), { class: 'muted', 'aria-disabled': 'true' }),
+      button(t('title.voyage'), startVoyage, { class: state.autosave ? '' : 'primary' }),
+      button(t('title.fight'), startFight),
       button(t('title.newCampaign'), () => flash(t('title.soon'))),
       button(t('title.settings'), () => show(settingsScreen)),
       button(t('title.credits'), () => show(creditsScreen)),
@@ -125,6 +133,70 @@ async function startFight() {
   }
 }
 
+// ---- the practice voyage (M2) ----
+function whereLabel(doc) {
+  const date = formatDay(doc.where.day, state.lang);
+  return { date, port: doc.where.port ? state.t('port.name.' + doc.where.port) : '' };
+}
+
+async function refreshAutosave() {
+  try { state.autosave = await saves.peek('auto'); } catch { state.autosave = null; }
+}
+
+async function openVoyage(V) {
+  if (!state.voyage) state.voyage = await loadVoyageData('m2-pepper');
+  const { D, mission } = state.voyage;
+  openPort(app, {
+    t: state.t, lang: state.lang, D, mission, V: V || createVoyage(D, mission),
+    onSave: (v) => saves.write('auto', v, VERSION).then((doc) => { state.autosave = doc; }).catch(() => flash(state.t('settings.bad.writeFailed'))),
+    onLeave: () => refreshAutosave().then(() => show(titleScreen)),
+  });
+}
+
+async function startVoyage() {
+  // a voyage in progress is replaced only on a second tap within 4 seconds
+  const running = state.autosave && state.autosave.state && !state.autosave.state.result;
+  if (running && !(startVoyage.armed > Date.now())) {
+    startVoyage.armed = Date.now() + 4000;
+    flash(state.t('title.replaceSave'));
+    return;
+  }
+  startVoyage.armed = 0;
+  try {
+    await openVoyage(null);
+  } catch (err) {
+    flash('Error · Erro: ' + (err && err.message ? err.message : err));
+  }
+}
+
+async function continueVoyage() {
+  let V = null;
+  try { V = await saves.read('auto'); } catch { /* reported below */ }
+  if (!V) { flash(state.t('title.loadBad')); return; }
+  try { await openVoyage(V); } catch (err) { flash('Error · Erro: ' + (err && err.message ? err.message : err)); }
+}
+
+async function exportSave() {
+  const doc = await saves.peek('auto');
+  if (!doc) { flash(state.t('settings.exportNone')); return; }
+  saves.exportFile(doc);
+  flash(state.t('settings.exported'));
+}
+
+async function importSave() {
+  const text = await saves.pickFile();
+  if (text == null) return;
+  try {
+    const V = saves.unpack(text);
+    const doc = await saves.write('auto', V, VERSION);
+    state.autosave = doc;
+    flash(state.t('settings.imported', whereLabel(doc)));
+  } catch (err) {
+    const k = 'settings.bad.' + (err && err.message);
+    flash(state.t(k) === k ? state.t('settings.bad.broken') : state.t(k));
+  }
+}
+
 function footer(t) {
   return el('footer', {},
     el('span', {}, t('title.version', { v: VERSION })),
@@ -146,6 +218,13 @@ function settingsScreen() {
       button(t('lang.en'), () => choose('en'), { class: state.lang === 'en' ? 'primary' : '', 'aria-pressed': String(state.lang === 'en') }),
       button(t('lang.pt'), () => choose('pt'), { class: state.lang === 'pt' ? 'primary' : '', 'aria-pressed': String(state.lang === 'pt') }),
     ),
+    el('h3', {}, t('settings.saves')),
+    el('p', {}, t('settings.saveNote')),
+    el('div', { class: 'row' },
+      button(t('settings.export'), exportSave),
+      button(t('settings.import'), importSave),
+    ),
+    hintLine(),
     el('h3', {}, t('settings.privacy')),
     el('p', {}, t('settings.privacyNote')),
     el('h3', {}, t('settings.about')),
@@ -206,6 +285,7 @@ function registerWorker() {
 // --- start ---------------------------------------------------------------------
 async function start() {
   state.tables = await loadTexts();
+  await refreshAutosave();
   const saved = await store.get('settings.lang');
   if (saved) {
     setLang(saved);

@@ -17,7 +17,11 @@
     "soon": "The campaign arrives in a later build. Try the practice fight.",
     "testBuild": "Test version",
     "version": "Version {v}",
-    "fight": "Practice fight"
+    "fight": "Practice fight",
+    "voyage": "Practice voyage: Pepper for Cochin",
+    "continueFrom": "Continue · {date}, {port}",
+    "loadBad": "The saved voyage could not be read.",
+    "replaceSave": "Tap again to start a new voyage. It replaces the saved one."
   },
   "install": {
     "ios": "To keep your saves on iPhone: tap Share, then “Add to Home Screen”.",
@@ -35,7 +39,21 @@
     "offline": "Works offline once opened.",
     "offlineReady": "Ready to play offline.",
     "about": "About",
-    "back": "Back"
+    "back": "Back",
+    "saves": "Saves",
+    "export": "Export save",
+    "import": "Import save",
+    "exportNone": "No save to export yet.",
+    "exported": "Save file made. Keep it somewhere safe.",
+    "imported": "Save loaded: {date}, {port}.",
+    "saveNote": "Saves live only on this phone. Export one now and then as a backup, or to move to another phone.",
+    "bad": {
+      "notSave": "That file is not a save from this game.",
+      "tooNew": "That save comes from a newer version of the game.",
+      "broken": "That save is damaged.",
+      "noUpgrade": "That save is too old to load.",
+      "writeFailed": "The save could not be written."
+    }
   },
   "credits": {
     "title": "Credits",
@@ -247,5 +265,150 @@
       "again": "Fight again",
       "leave": "Back to the title"
     }
+  },
+  "port": {
+    "date": "Date",
+    "gold": "Gold",
+    "monsoonIn": "Monsoon in",
+    "days": "{n} days",
+    "goal": "Goal: {gold} gold profit",
+    "profitNow": "Profit {gold}",
+    "tab": {
+      "market": "Market",
+      "shipyard": "Shipyard",
+      "tavern": "Tavern"
+    },
+    "name": {
+      "goa": "Goa",
+      "cannanore": "Cannanore",
+      "calicut": "Calicut",
+      "cochin": "Cochin",
+      "quilon": "Quilon"
+    },
+    "owner": {
+      "pt": "Portuguese",
+      "zamorin": "The Zamorin's",
+      "nl": "Dutch"
+    },
+    "size": {
+      "large": "large port",
+      "small": "small port"
+    },
+    "good": {
+      "pepper": "Pepper",
+      "cinnamon": "Cinnamon",
+      "cloth": "Cotton cloth",
+      "rice": "Rice",
+      "arrack": "Arrack",
+      "teak": "Teak",
+      "powder": "Powder and shot",
+      "food": "Provisions"
+    },
+    "cls": {
+      "patacho": "patacho"
+    },
+    "cheap": "Cheaper than usual",
+    "dear": "Dearer than usual",
+    "colGood": "Goods",
+    "colPrice": "Price",
+    "colHave": "Aboard",
+    "hold": "Hold {used} / {size}",
+    "stores": "Ship's stores (no hold space)",
+    "quote": "Buy at {buy} · sell at {sell}",
+    "foodDays": "food for {n} days",
+    "sellAll": "Sell all",
+    "max": "Max",
+    "hull": "Hull",
+    "sails": "Sails",
+    "crew": "Crew",
+    "morale": "Morale",
+    "repairAll": "Repair all · {gold} gold",
+    "noRepairs": "Nothing to repair",
+    "shipsLater": "Buying ships and fitting upgrades opens when your fleet grows (mission 3).",
+    "hire": "Hire {n} sailors · {gold} gold",
+    "fullCrew": "Full crew aboard",
+    "payWages": "Pay wages · {gold} gold",
+    "wagesPaid": "Wages paid",
+    "wagesNote": "Wages: {gold} gold a month for the whole crew.",
+    "moraleLow": "The crew are restless.",
+    "setSail": "Set sail",
+    "wait": "Wait a day",
+    "menu": "Menu",
+    "passageTitle": "Where to?",
+    "passage": "{port} · {days} days",
+    "closedOnArrival": "closed by the monsoon when you arrive",
+    "passageNote": "Quick passage: the days pass at sea, then you come in. The sea map arrives in the next update.",
+    "stay": "Stay in port",
+    "saveNow": "Save now",
+    "restart": "Restart the mission",
+    "leave": "Back to the title",
+    "back": "Back",
+    "closedUntil": "The port is closed by the monsoon until {date}.",
+    "wonTitle": "Pepper for Cochin",
+    "lostTitle": "The rains came",
+    "wonText": "The Lisbon ships sail full. Profit {gold} gold in {days} days.",
+    "lostText": "The monsoon closed the ports with your profit at {gold} gold. They open again on {date}.",
+    "starsLabel": "{n} of 3 stars",
+    "starsWhy": "Stars: goal met · no ship lost · done in the first half of the season.",
+    "again": "Play again",
+    "retry": "Try again",
+    "why": {
+      "holdFull": "The hold is full.",
+      "storesFull": "No more room for stores.",
+      "noGold": "Not enough gold.",
+      "noStock": "The market has no more.",
+      "noCargo": "You have none to sell.",
+      "noGood": "Not traded here.",
+      "over": "The mission is over.",
+      "atSea": "You're at sea.",
+      "closed": "The port is closed by the monsoon.",
+      "noShipyard": "No shipyard here.",
+      "noTavern": "No tavern here.",
+      "nothingToDo": "Nothing to do.",
+      "noRoute": "No route from here.",
+      "notHere": "Not on this coast."
+    },
+    "note": {
+      "bought": "Bought {n} {good} for {gold} gold.",
+      "sold": "Sold {n} {good} for {gold} gold.",
+      "waited": "A day passes: {date}.",
+      "arrived": "Anchored at {port} after {days} days.",
+      "hungry": "The food ran out: morale falls.",
+      "unpaid": "Wages are a month late: morale falls.",
+      "storm": "Monsoon seas battered the hull.",
+      "repaired": "Repaired for {gold} gold.",
+      "hired": "Sailors hired for {gold} gold.",
+      "paid": "Wages paid: {gold} gold.",
+      "saved": "Saved."
+    },
+    "hint": {
+      "start": "The Lisbon ships are loading at Cochin and pepper is dear here. Quilon, two days south, has plenty.",
+      "cheapHere": "Green ▼ means cheaper than usual: buy here. Sell where the arrow is red ▲.",
+      "sellDear": "Now sail back to Cochin and sell the pepper while it's dear.",
+      "monsoon": "The monsoon closes the ports on 1 June. Don't get caught at sea with cargo."
+    },
+    "rumour": {
+      "goa": {
+        "a": "The Viceroy's purse is thin this year; Dona Inês counts every cruzado.",
+        "b": "Dutch sails were seen off the bar again at dawn."
+      },
+      "cannanore": {
+        "a": "Ginger from the hills is cheap this week, they say.",
+        "b": "A pirate boat has been hiding in the creeks to the north."
+      },
+      "calicut": {
+        "a": "The Zamorin buys from whoever pays best, and the Dutch pay well.",
+        "b": "Calico from the looms here goes as far as Lisbon."
+      },
+      "cochin": {
+        "a": "The Lisbon ships want every sack of pepper before the rains.",
+        "b": "Ana Mendonça says Quilon's warehouses are bursting with pepper."
+      },
+      "quilon": {
+        "a": "The river boats bring pepper down from the hills every day.",
+        "b": "Cloth is scarce here; Cochin's merchants have it cheap."
+      }
+    },
+    "cargoNote": "Profit counts gold only: sell the {n} units aboard to see it."
   }
 }

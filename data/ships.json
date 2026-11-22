@@ -1,4 +1,4 @@
 {
-  "patacho": { "nation": "pt", "model": "patacho", "guns": 10, "hull": 100, "crew": 150, "powder": 40, "top": 42, "turn": 18 },
-  "dutchWarship": { "nation": "nl", "model": "dutchWarship", "guns": 11, "hull": 110, "crew": 160, "powder": 40, "top": 38, "turn": 14 }
+  "patacho": { "nation": "pt", "model": "patacho", "guns": 10, "hull": 100, "crew": 150, "powder": 40, "top": 42, "turn": 18, "hold": 80, "price": 4000 },
+  "dutchWarship": { "nation": "nl", "model": "dutchWarship", "guns": 11, "hull": 110, "crew": 160, "powder": 40, "top": 38, "turn": 14, "hold": 120, "price": 6000 }
 }

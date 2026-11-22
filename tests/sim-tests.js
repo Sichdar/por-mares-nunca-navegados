@@ -3,6 +3,7 @@
 import { createRng } from '../src/sim/rng.js';
 import { createTranslator, flatten, guessLang } from '../src/text/i18n.js';
 import { fightTests } from './fight-tests.js';
+import { voyageTests } from './voyage-tests.js';
 
 function equal(a, b, what) {
   if (JSON.stringify(a) !== JSON.stringify(b)) throw new Error(`${what}: expected ${JSON.stringify(b)}, got ${JSON.stringify(a)}`);
@@ -63,4 +64,5 @@ export const tests = [
     },
   },
   ...fightTests,
+  ...voyageTests,
 ];

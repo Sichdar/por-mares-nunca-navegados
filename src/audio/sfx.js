@@ -39,6 +39,7 @@ export const crack = (vol = 0.6) => play((t) => { noiseBurst(t, { type: 'highpas
 export const bell = (vol = 0.5) => play((t) => { for (const [f, v] of [[660, 1], [1320, 0.4], [1980, 0.2]]) tone(t, f, f * 0.995, 0.18 * vol * v, 2.2); });
 export const grapnel = (vol = 0.6) => play((t) => { for (let i = 0; i < 3; i++) noiseBurst(t + i * 0.12, { type: 'bandpass', f0: 2600, f1: 2600, q: 4, vol: 0.2 * vol, attack: 0.002, len: 0.1 }); });
 export const tick = () => play((t) => tone(t, 900, 700, 0.06, 0.06, 'triangle'));
+export const coin = (vol = 1) => play((t) => { tone(t, 1400, 1350, 0.07 * vol, 0.12, 'triangle'); tone(t + 0.06, 1900, 1850, 0.05 * vol, 0.14, 'triangle'); });
 
 // Phone vibration (not on iPhone Safari: every buzz also has a sound or a sign, Phase 3).
 export function buzz(ms) { try { if (!muted && navigator.vibrate) navigator.vibrate(ms); } catch { /* not supported */ } }

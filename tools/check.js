@@ -6,6 +6,7 @@ import { ROOT, gameFiles, swFiles, swVersion } from './files.js';
 import { tests } from '../tests/sim-tests.js';
 import { balanceReport } from '../tests/balance.js';
 import { checkTexts } from '../tests/text-check.js';
+import { tradeReport } from '../tests/trade-balance.js';
 import { VERSION } from '../src/version.js';
 
 let failed = 0;
@@ -21,6 +22,13 @@ console.log('Balance runs (16 bot fights each; targets are for tuning, so they w
 const bal = balanceReport(16);
 bal.lines.forEach((l) => console.log('  · ' + l));
 bal.checks.forEach((c) => console.log((c.ok ? '  ✓ ' : '  ! ') + c.text));
+
+console.log('Trade runs and saves (mission 2 data; test T5 targets warn but never fail)');
+const tr = tradeReport();
+tr.lines.forEach((l) => console.log('  · ' + l));
+tr.checks.forEach((c) => console.log((c.ok ? '  ✓ ' : '  ! ') + c.text));
+tr.errors.forEach(bad);
+if (!tr.errors.length) ok(`data files fit together; ${tr.saves} kept test save(s) still load`);
 
 console.log('Text check (en / pt)');
 const report = checkTexts();

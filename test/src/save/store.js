@@ -59,6 +59,22 @@ export async function set(key, value) {
   });
 }
 
+export async function del(key) {
+  memory.delete(key);
+  const db = await open();
+  if (!db) return;
+  await new Promise((resolve) => {
+    try {
+      const tx = db.transaction(STORE, 'readwrite');
+      tx.objectStore(STORE).delete(key);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => resolve();
+    } catch {
+      resolve();
+    }
+  });
+}
+
 // Ask the browser to keep our data (Phase 8: Safari may clear it otherwise).
 export async function askToKeep() {
   try {

@@ -1,0 +1,150 @@
+{
+ "format": "pmnn-save",
+ "v": 1,
+ "game": "sample",
+ "savedAt": "2026-11-22T06:00:00.000Z",
+ "where": {
+  "day": -121201,
+  "port": "cochin",
+  "mission": "m2-pepper"
+ },
+ "state": {
+  "mission": "m2-pepper",
+  "map": "south-malabar",
+  "seed": 1638,
+  "rng": 1638,
+  "day": -121201,
+  "startDay": -121201,
+  "difficulty": "captain",
+  "gold": 1000,
+  "startGold": 1000,
+  "fleet": [
+   {
+    "id": "p1",
+    "name": "São Brás",
+    "cls": "patacho",
+    "hull": 100,
+    "hullMax": 100,
+    "sails": 100,
+    "crew": 150,
+    "crewMax": 150,
+    "morale": 70,
+    "powder": 40,
+    "powderMax": 40,
+    "food": 90,
+    "foodMax": 90,
+    "hold": 80,
+    "cargo": {}
+   }
+  ],
+  "ports": {
+   "cochin": {
+    "market": {
+     "pepper": {
+      "t": 800,
+      "u": 560,
+      "s": 560
+     },
+     "cinnamon": {
+      "t": 150,
+      "u": 120,
+      "s": 120
+     },
+     "cloth": {
+      "t": 300,
+      "u": 360,
+      "s": 360
+     },
+     "rice": {
+      "t": 300,
+      "u": 300,
+      "s": 300
+     },
+     "arrack": {
+      "t": 150,
+      "u": 150,
+      "s": 150
+     },
+     "teak": {
+      "t": 250,
+      "u": 300,
+      "s": 300
+     },
+     "powder": {
+      "t": 300,
+      "u": 360,
+      "s": 360
+     },
+     "food": {
+      "t": 500,
+      "u": 550,
+      "s": 550
+     }
+    },
+    "visits": 1
+   },
+   "quilon": {
+    "market": {
+     "pepper": {
+      "t": 800,
+      "u": 1000,
+      "s": 1000
+     },
+     "cinnamon": {
+      "t": 80,
+      "u": 64,
+      "s": 64
+     },
+     "cloth": {
+      "t": 150,
+      "u": 120,
+      "s": 120
+     },
+     "rice": {
+      "t": 200,
+      "u": 260,
+      "s": 260
+     },
+     "arrack": {
+      "t": 100,
+      "u": 130,
+      "s": 130
+     },
+     "teak": {
+      "t": 150,
+      "u": 180,
+      "s": 180
+     },
+     "powder": {
+      "t": 120,
+      "u": 96,
+      "s": 96
+     },
+     "food": {
+      "t": 300,
+      "u": 360,
+      "s": 360
+     }
+    },
+    "visits": 0
+   }
+  },
+  "at": "cochin",
+  "wagesOwed": 0,
+  "goal": {
+   "type": "profit",
+   "gold": 800,
+   "by": "monsoon"
+  },
+  "result": null,
+  "stats": {
+   "bought": 0,
+   "sold": 0,
+   "repairs": 0,
+   "wages": 0,
+   "hired": 0,
+   "days": 0
+  },
+  "hinted": {}
+ }
+}

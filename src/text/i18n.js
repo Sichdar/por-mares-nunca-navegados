@@ -39,3 +39,11 @@ export function formatDate(date, lang) {
     day: 'numeric', month: 'short', year: 'numeric',
   }).format(date);
 }
+
+// A game day (src/sim/calendar.js day number) as "14 Mar 1640" / "14 mar. 1640" (Phase 7).
+// Built from parts, because some browsers write Portuguese short dates as 14/03/1640.
+export function formatDay(day, lang) {
+  const d = new Date(day * 86400000 + 43200000);
+  const month = new Intl.DateTimeFormat(LOCALES[lang] || 'en-GB', { month: 'short', timeZone: 'UTC' }).format(d);
+  return `${d.getUTCDate()} ${month} ${d.getUTCFullYear()}`;
+}

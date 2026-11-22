@@ -1,0 +1,25 @@
+{
+  "_note": "Trade goods and ship stores (GDD Phase 2 rule 4, Phase 5 prices). Base price per hold unit, in gold. Drift raised from 5% to 8% a day by the M2 trade runs (tests/trade-balance.js). Stores prices and sizes are first guesses (S08, 22/11/2026), to tune in test T5.",
+  "goods": {
+    "pepper":   { "base": 20, "kind": "good" },
+    "cinnamon": { "base": 45, "kind": "good" },
+    "cloth":    { "base": 15, "kind": "good" },
+    "rice":     { "base": 4,  "kind": "good" },
+    "arrack":   { "base": 10, "kind": "good" },
+    "teak":     { "base": 8,  "kind": "good" },
+    "powder":   { "base": 5,  "kind": "store" },
+    "food":     { "base": 2,  "kind": "store" }
+  },
+  "rules": {
+    "priceSwing": 0.6,
+    "priceMin": 0.4,
+    "priceMax": 2.5,
+    "driftPerDay": 0.08,
+    "wagePerSailorMonth": 2,
+    "repairPerHull": 10,
+    "repairPerSail": 3,
+    "hirePerSailor": 4,
+    "foodPerSailorDay": 0.02,
+    "foodDaysCarried": 30
+  }
+}
